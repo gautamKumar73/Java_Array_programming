@@ -1,0 +1,28 @@
+best time to buy and sell stock program
+
+class sellingStock 
+{
+	public static void main(String[] args) 
+	{
+		int []a={7,1,5,3,6,5};
+		System.out.println(bestProfit(a));
+		
+	}
+	public static int bestProfit(int []a)
+	{
+		int max_profit=0;
+		int cp=a[0];
+		
+		for(int i=1;i<a.length;i++)
+		{
+			int sp=a[i];
+			int profit=sp-cp;
+			max_profit=Math.max(profit,max_profit);
+			if(sp<cp)
+			{
+				cp=sp;
+			}
+		}
+		return max_profit;
+	}
+}
