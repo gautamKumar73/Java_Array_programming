@@ -1,0 +1,39 @@
+most water trapping program
+
+import java.util.*;
+class  waterTrap
+{
+	public static void main(String[] args) 
+	{
+		int []a={4,2,0,3,6,5};
+		System.out.println(Arrays.toString(a));
+	   trap(a);
+	}
+	public static void trap(int []a)
+	{
+		int sum=0;
+		int n=a.length;
+		int []I=new int[n];
+		int []r=new int[n];
+		I[0]=a[0];
+		for(int i=1;i<n;i++)
+		{
+			I[i]=Math.max(a[i],I[i-1]);
+		}
+		System.out.println(Arrays.toString(I));
+		r[n-1]=a[n-1];
+		for(int i=n-2;i>=0;i--)
+		{
+			r[i]=Math.max(a[i],r[i+1]);
+		}
+		System.out.println(Arrays.toString(r));
+		for(int i=0;i<n;i++){
+		int val=Math.min(I[i],r[i]);
+		System.out.println(val);
+		sum+=(val-a[i]);
+		System.out.print(sum+" ");
+		}
+		System.out.print(sum);
+		
+	}
+}
